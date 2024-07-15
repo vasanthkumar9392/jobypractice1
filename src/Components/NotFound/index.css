@@ -1,0 +1,23 @@
+.ntfound-bg-container {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.notfound-image {
+  width: 30%;
+}
+.notfound-heading {
+  font-family: 'Roboto';
+  font-size: 35px;
+  font-weight: bold;
+  color: #f8fafc;
+}
+.not-found-para{
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: bold;
+  color: #cbd5e1;
+}

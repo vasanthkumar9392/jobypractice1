@@ -1,0 +1,17 @@
+.type-list {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.type-label-text {
+  font-family: 'Roboto';
+  font-size: 15px;
+  color: #ffffff;
+  margin-left: 12px;
+  font-weight: 500;
+}
+.input-chech-box {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}

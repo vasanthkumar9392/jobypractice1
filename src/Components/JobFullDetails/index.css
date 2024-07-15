@@ -1,0 +1,112 @@
+.job-details-bottom-container {
+  min-height: 90vh;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+}
+.job-inner-container {
+  margin-top: 40px;
+  width: 90%;
+}
+.new-height-width {
+  width: 60%;
+}
+.sp-job-container {
+  width: 90%;
+}
+.description-link-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.link-text {
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: bold;
+  color: #6366f1;
+  text-decoration: none;
+}
+.big-description {
+  line-height: 2;
+  font-size: 20px;
+  color: #cbd5e1;
+}
+.skill-un-lists {
+  width: 100%;
+  list-style-type: none;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.skill-heading {
+  font-family: 'Roboto';
+  font-size: 25px;
+  font-weight: bold;
+  color: #f8fafc;
+}
+.life-at-container {
+  display: flex;
+  flex-direction: column;
+}
+.lifat-company-heading {
+  font-family: 'Roboto';
+  font-size: 25px;
+  font-weight: bold;
+  color: #f8fafc;
+}
+.life-at-company-para-image-container {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 767px) {
+  .life-at-company-para-image-container {
+    flex-direction: column;
+  }
+}
+.li-at-para {
+  line-height: 2;
+  width: 55%;
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: bold;
+  color: #cbd5e1;
+  margin-top: 0px;
+}
+.similarjobs-heading {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: 'Roboto';
+  font-size: 30px;
+  font-weight: bold;
+  color: #f8fafc;
+}
+.life-at-image {
+  width: 35%;
+  max-height: 300px;
+  border-radius: 15px;
+}
+@media (max-width: 767px) {
+  .li-at-para {
+    width: 100%;
+  }
+  .life-at-image {
+    width: 100%;
+  }
+}
+.similar-jabs-lists {
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 0px;
+}
+@media (max-width: 767px) {
+  .similar-jabs-lists {
+    flex-direction: column;
+  }
+}
+.sp-job-container {
+  width: 100%;
+}

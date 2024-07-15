@@ -1,14 +1,23 @@
 import {Component} from 'react'
+import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
 import './index.css'
 
 class LoginPage extends Component {
-  state = {userName: '', userPassword: '', isMatched: true, errorMsg: ''}
+  state = {username: '', password: '', isMatched: false, errorMsg: ''}
+
+  loginSuccessfully = jwtToken => {
+    const {history} = this.props
+
+    Cookies.set('jwt_token', jwtToken, {expires: 30, path: '/'})
+    history.replace('/')
+  }
 
   onSubmitFormDetails = async event => {
     event.preventDefault()
-    const {userName, userPassword} = this.state
+    const {username, password} = this.state
 
-    const userDetails = {userName, userPassword}
+    const userDetails = {username, password}
     const url = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',
@@ -16,20 +25,28 @@ class LoginPage extends Component {
     }
     const response = await fetch(url, options)
     const data = await response.json()
-    console.log(response)
     console.log(data)
+    if (response.ok) {
+      this.loginSuccessfully(data.jwt_token)
+    } else {
+      this.setState({isMatched: true, errorMsg: data.error_msg})
+    }
   }
 
   updateUserName = event => {
-    this.setState({userName: event.target.value})
+    this.setState({username: event.target.value})
   }
 
   updatepassword = event => {
-    this.setState({userPassword: event.target.value})
+    this.setState({password: event.target.value})
   }
 
   render() {
-    const {userName, userPassword, isMatched, errorMsg} = this.state
+    const {username, password, isMatched, errorMsg} = this.state
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
     return (
       <div className="login-bg-container">
         <h1 className="login-heading">Please Login</h1>
@@ -48,7 +65,7 @@ class LoginPage extends Component {
                 className="input-element"
                 id="username"
                 type="text"
-                value={userName}
+                value={username}
                 onChange={this.updateUserName}
               />
             </div>
@@ -60,16 +77,19 @@ class LoginPage extends Component {
                 className="input-element"
                 id="password"
                 type="password"
-                value={userPassword}
+                value={password}
                 onChange={this.updatepassword}
               />
             </div>
             <button type="submit" className="login-button">
               Login
             </button>
-            {isMatched ? null : <p className="error-message">*{errorMsg}</p>}
+            {isMatched && <p className="error-message">*{errorMsg}</p>}
           </form>
         </div>
+        <p className="dev-text">
+          Developed by @<span className="my-name"> Vasanthu</span>
+        </p>
       </div>
     )
   }
